@@ -24,15 +24,15 @@ const randomNumber = (start, stop) => {
 
 const fortune = (ctx, body = null, status = 200) => {
     // Uncomment for delay
-    // const delay = randomNumber(1, 10) * 1000;
-    const delay = 0;
+    const delay = randomNumber(1, 5) * 1000;
+    // const delay = 0;
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             // Uncomment for error generation
-            // if (Math.random() > 0.8) {
-            //     reject(new Error('Something bad happened'));
-            //     return;
-            // }
+            if (Math.random() > 0.8) {
+                reject(new Error('Something bad happened'));
+                return;
+            }
 
             ctx.response.status = status;
             ctx.response.body = body;
@@ -57,7 +57,7 @@ router.get('/api/categories', async (ctx, next) => {
     return fortune(ctx, categories);
 });
 
-router.get('/api/cards', async (ctx, next) => {
+router.get('/api/items', async (ctx, next) => {
     const { query } = ctx.request;
 
     const categoryId = query.categoryId === undefined ? 0 : Number(query.categoryId);
@@ -73,7 +73,7 @@ router.get('/api/cards', async (ctx, next) => {
     return fortune(ctx, filtered);
 });
 
-router.get('/api/cards/:id', async (ctx, next) => {
+router.get('/api/items/:id', async (ctx, next) => {
     const id = Number(ctx.params.id);
     const item = items.find(o => o.id === id);
     if (item === undefined) {

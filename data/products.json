@@ -23,7 +23,7 @@
             },
             {
                 "size": "15 US",
-                "avalible": false
+                "avalible": true
             }
         ]
     },
@@ -50,7 +50,7 @@
             },
             {
                 "size": "16 US",
-                "avalible": false
+                "avalible": true
             }
         ]
     },
@@ -77,7 +77,11 @@
             },
             {
                 "size": "18 US",
-                "avalible": false
+                "avalible": true
+            },
+            {
+                "size": "20 US",
+                "avalible": true
             }
         ]
     },
