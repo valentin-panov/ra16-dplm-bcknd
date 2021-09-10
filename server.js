@@ -73,7 +73,7 @@ router.get('/api/items', async (ctx, next) => {
     return fortune(ctx, filtered);
 });
 
-router.get('/api/items/:id', async (ctx, next) => {
+router.get('/api/catalog/:id', async (ctx, next) => {
     const id = Number(ctx.params.id);
     const item = items.find(o => o.id === id);
     if (item === undefined) {
